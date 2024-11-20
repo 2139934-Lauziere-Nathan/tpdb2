@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>options</title>
+</head>
+<body>
+    <h1>Bienvennue a la Pizzeria</h1>
+    <p>selectionner une option:</p>
+    <form action="{{ url_for('PizzaForm') }}" method="get" style="display:inline;">
+        <button type="submit">Nouvelle commande</button>
+    </form>
+    <form action="{{ url_for('liste_commande') }}" method="get" style="display:inline;">
+        <button type="submit">Consulter les commandes</button>
+    </form>
+</body>
+</html>

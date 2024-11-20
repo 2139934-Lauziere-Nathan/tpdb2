@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>detailes de la commande</title>
+    <style>
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .details-table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>detail de la commande</h1>
+
+    <h2>information du client</h2>
+    <table class="details-table">
+        <tr><th>nom</th><td>{{ commande.client_name }}</td></tr>
+        <tr><th>telephonne</th><td>{{ commande.client_tel }}</td></tr>
+        <tr><th>Address</th><td>{{ commande.client_address }}</td></tr>
+    </table>
+
+    <h2>detail de la Pizza</h2>
+    <table class="details-table">
+        <tr><th>croute</th><td>{{ commande.croute }}</td></tr>
+        <tr><th>Sauce</th><td>{{ commande.sauces }}</td></tr>
+        <tr><th>Garniture 1</th><td>{{ commande.garniture1 }}</td></tr>
+        <tr><th>Garniture 2</th><td>{{ commande.garniture2 }}</td></tr>
+        <tr><th>Garniture 3</th><td>{{ commande.garniture3 }}</td></tr>
+        <tr><th>Garniture 4</th><td>{{ commande.garniture4 }}</td></tr>
+    </table>
+
+    
+    <h2>Status</h2>
+    <form action="{{ url_for('update_status') }}" method="post">
+        <table class="details-table">
+            <tr>
+                <th>Status</th>
+                <td>
+                    <select name="status">
+                        <option value="enPreparation" {% if commande.status == 'enPreparation' %}selected{% endif %}>En Preparation</option>
+                        <option value="enLivraison" {% if commande.status == 'enLivraison' %}selected{% endif %}>En Livraison</option>
+                        <option value="completer" {% if commande.status == 'completer' %}selected{% endif %}>Completer</option>
+                    </select>
+                    <button type="submit">mettre a jour</button>
+                </td>
+                
+            </tr>
+        </table>
+        <input type="hidden" name="id_commande" value="{{ commande.id_commande }}">
+        
+    </form>
+
+    <a href="{{ url_for('liste_commande') }}">retour a la liste</a>
+</body>
+</html>

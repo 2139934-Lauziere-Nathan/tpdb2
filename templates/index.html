@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvennue a la pizzeria</title>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvennue a la pizzeria</h1>
+        <div class="button-container">
+            <form action="{{ url_for('client_form') }}" method="get" style="display:inline;">
+                <button type="submit">connexion</button>
+            </form>    <form action="{{ url_for('liste_commande') }}" method="get" style="display:inline;">
+                <button type="submit">Consulter les commandes</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

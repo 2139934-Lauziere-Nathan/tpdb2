@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>creation d'identifient</title>
+</head>
+<body>
+    <h1>creation d'identifient</h1>
+    <form action="{{ url_for('client_form') }}" method="post">
+        <label for="nom">nom:</label>
+        <input type="text" id="nom" name="nom" required><br><br>
+
+        <label for="tel">telephonne:</label>
+        <input type="text" id="tel" name="tel" required><br><br>
+
+        <label for="addresse">addresse:</label>
+        <input type="text" id="addresse" name="addresse" required><br><br>
+
+        <label for="mdp">Mot de passe:</label>
+        <input type="password" id="mdp" name="mdp" required><br><br>
+
+        <button type="submit">envoyer</button>
+
+    </form>
+    <form action="{{url_for('login')}}" method="post">
+        <label>Deja un compte:</label>
+        <button type="submit">connexion</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Commandes</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Liste des Commandes</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Commande ID</th>
+                <th>Client ID</th>
+                <th>Pizza ID</th>
+                <th>Status</th>
+                <th>Afficher Detail</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in liste_commande_records %}
+                <tr>
+                    <form action="{{ url_for('view_commande') }}" method="post">
+                        <td>{{ record['id_commande'] }}</td>
+                        <td>{{ record['id_client'] }}</td>
+                        <td>{{ record['id_pizza'] }}</td>
+                        <td>{{ record['status'] }}</td>
+                        <input type="hidden" name="id_commande" value="{{ record['id_commande'] }}">
+        
+                        <td><button type="submit">Detail</button></td>
+                    </form>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

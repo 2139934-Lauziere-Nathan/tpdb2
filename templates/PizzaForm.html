@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Commande</title>
+</head>
+<body>
+    <h1>Commande</h1>
+    <form action="{{ url_for('PizzaForm') }}" method="post">
+        <label for="croute">Croute:</label>
+        <select id="croute" name="croute" required>
+            {% for option in croute_options %}
+                <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="sauces">Sauce:</label>
+        <select id="sauces" name="sauces" required>
+            {% for option in sauces_options %}
+                <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        {% for i in range(1, 5) %}
+            <label for="garniture{{ i }}">Garniture {{ i }}:</label>
+            <select id="garniture{{ i }}" name="garniture{{ i }}">
+                {% for option in garniture_options %}
+                    <option value="{{ option }}">{{ option }}</option>
+                {% endfor %}
+            </select><br><br>
+        {% endfor %}
+      
+
+        <button type="submit">Soumetre</button>
+    </form>
+</body>
+</html>
